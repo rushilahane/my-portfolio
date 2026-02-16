@@ -1,163 +1,22 @@
 import { useState, useEffect } from "react";
+import { DATA } from "./data";
+import type { Project, ExperienceItem, SkillGroup, Stat } from "./types";
 
-// ── PERSONAL DATA ─────────────────────────────────────────────────────────────
-const DATA = {
-  name: "Rushikesh Lahane",
-  role: "Senior Mobile Developer",
-  tagline: "Building high-performance cross-platform apps with React Native & TypeScript.",
-  email: "rushilahane10@gmail.com",
-  phone: "+91 9561211947",
-  github: "https://github.com/rushilahane",
-  linkedin: "https://linkedin.com/in/rushilahane",
-  location: "Pune, Maharashtra, India",
-  about: `Senior Mobile Developer with 5+ years of expertise in cross-platform application development using React Native and JavaScript/TypeScript. Proven track record of building scalable, high-performance mobile applications with pixel-perfect UIs.
-
-I bring strong experience across the full development cycle — from architecture and state management to API integrations, payment systems, and App Store deployment. I'm passionate about performance optimization and mentoring teams to ship clean, production-ready code.`,
-
-  skillGroups: [
-    {
-      label: "Mobile Development",
-      skills: ["React Native", "JavaScript", "TypeScript", "React Hooks", "Redux", "Context API", "iOS", "Android", "Expo"],
-    },
-    {
-      label: "Frontend",
-      skills: ["React.js", "HTML", "CSS", "Responsive Design", "Component Architecture"],
-    },
-    {
-      label: "Tools & Platforms",
-      skills: ["Xcode", "Android Studio", "VS Code", "Git", "GitHub", "GitLab", "Jira", "Firebase"],
-    },
-    {
-      label: "Integrations",
-      skills: ["REST APIs", "Socket.IO", "Google Maps", "Payment Gateways", "In-App Payments", "OCR Integration"],
-    },
-    {
-      label: "Cloud & Backend",
-      skills: ["Firebase", "Push Notifications", "Crashlytics", "Social Auth (Google, Facebook, Apple, LinkedIn)"],
-    },
-    {
-      label: "Deployment",
-      skills: ["Apple App Store", "Google Play Store", "CI/CD", "Expo OTA Updates"],
-    },
-  ],
-
-  experience: [
-    {
-      title: "Senior Developer — Mobile App",
-      company: "Intangles Lab",
-      period: "July 2025 – Present",
-      location: "Pune, Maharashtra, India",
-      highlights: [
-        "Leading mobile application development, architecting scalable solutions for complex business requirements.",
-        "Mentoring junior developers on React Native best practices and modern development workflows.",
-        "Implemented Expo OTA Updates enabling instant deployments without store releases — reducing update cycles by 70%.",
-        "Executed React Native version upgrades from 0.68 → 0.73 → 0.83, improving app stability by 25%.",
-        "Optimized components using React.memo, useMemo, useCallback — reducing unnecessary re-renders by 60%.",
-        "Built real-time analytics dashboards with Line, Bar, Pie & Scatter plots using Victory Native and RN Charts.",
-      ],
-    },
-    {
-      title: "Software Developer",
-      company: "Intangles Lab",
-      period: "April 2023 – July 2025",
-      location: "Pune, Maharashtra, India",
-      highlights: [
-        "Developed and maintained multiple production React Native apps serving thousands of users on iOS & Android.",
-        "Integrated OCR (Google ML Kit) for document scanning — processing 500+ documents daily at 95% accuracy.",
-        "Built custom graph components for vehicle diagnostics (speed, fuel, engine metrics) at smooth 60 FPS.",
-        "Implemented Firebase push notifications, crash reporting, and real-time database synchronization.",
-        "Created reusable component libraries with lazy loading & virtualized lists — reducing memory usage by 40%.",
-        "Integrated payment gateways, Socket.IO real-time communication, and location-based features.",
-      ],
-    },
-    {
-      title: "Senior Software Developer",
-      company: "Redbytes Software",
-      period: "December 2021 – April 2023",
-      location: "Pune, Maharashtra, India",
-      highlights: [
-        "Built pixel-perfect, responsive UIs for mobile and tablet following design specs with 99% accuracy.",
-        "Reduced bundle size by 35% and initial load time by 2.5s through memoization and code splitting.",
-        "Published and managed multiple applications on Apple App Store and Google Play Store.",
-        "Implemented interactive charts (bar, line, donut) for financial & analytics apps using Recharts and D3.js.",
-        "Integrated social auth flows (Google, Facebook, Apple, LinkedIn) improving user onboarding by 40%.",
-      ],
-    },
-    {
-      title: "Software Developer",
-      company: "Redbytes Software",
-      period: "November 2020 – December 2021",
-      location: "Pune, Maharashtra, India",
-      highlights: [
-        "Developed cross-platform mobile apps using React Native, Redux, and modern JavaScript.",
-        "Integrated Google Maps API and location services for real-time tracking and geolocation features.",
-        "Reduced app crash rate by 45% through performance monitoring and optimized rendering cycles.",
-        "Collaborated with designers and backend teams on RESTful API integrations and WebSocket connections.",
-      ],
-    },
-  ],
-
-  projects: [
-    {
-      title: "Vehicle Diagnostics Dashboard",
-      description:
-        "Real-time analytics dashboard for vehicle data — speed, fuel consumption, and engine metrics rendered at 60 FPS with Line, Bar, Pie, and Scatter plot visualizations using Victory Native.",
-      tags: ["React Native", "Victory Native", "Socket.IO", "Firebase"],
-      emoji: "🚗",
-    },
-    {
-      title: "OCR Document Scanner",
-      description:
-        "Mobile app feature integrating Google ML Kit for document scanning and text extraction — processing 500+ documents daily with 95% accuracy, including ID cards and invoices.",
-      tags: ["React Native", "Google ML Kit", "OCR", "TypeScript"],
-      emoji: "📄",
-    },
-    {
-      title: "Cross-Platform Payment App",
-      description:
-        "Full-cycle React Native application with payment gateway integration, in-app purchases, social auth (Google, Facebook, Apple, LinkedIn), and OTA update delivery via Expo.",
-      tags: ["React Native", "Expo OTA", "Payment Gateway", "Redux"],
-      emoji: "💳",
-    },
-    {
-      title: "Real-Time Tracking Platform",
-      description:
-        "Location-based mobile app with Google Maps integration, real-time geolocation tracking via Socket.IO, and WebSocket connections for live data updates on iOS and Android.",
-      tags: ["React Native", "Google Maps", "Socket.IO", "Android/iOS"],
-      emoji: "📍",
-    },
-  ],
-
-  stats: [
-    { value: "5+", label: "Years Experience" },
-    { value: "70%", label: "Faster Update Cycles" },
-    { value: "60%", label: "Re-render Reduction" },
-    { value: "95%", label: "OCR Accuracy" },
-  ],
-
-  education: {
-    degree: "Bachelor of Engineering — Computer Science",
-    university: "Sant Gadge Baba Amravati University",
-    period: "2015 – 2019",
-    location: "Amravati, India",
-  },
-
-  certifications: ["React Native and Redux Course using Hooks – Udemy"],
-};
-// ─────────────────────────────────────────────────────────────────────────────
-
-const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+// ── HELPERS ───────────────────────────────────────────────────────────────────
+const scrollTo = (id: string): void =>
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
 // ── NAVBAR ────────────────────────────────────────────────────────────────────
-function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+function Navbar(): JSX.Element {
+  const [scrolled, setScrolled] = useState<boolean>(false);
+
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 20);
+    const fn = (): void => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  const links = ["about", "experience", "projects", "contact"];
+  const links: string[] = ["about", "experience", "projects", "contact"];
 
   return (
     <nav
@@ -183,8 +42,8 @@ function Navbar() {
               key={l}
               onClick={() => scrollTo(l)}
               style={{ background: "none", border: "none", color: "#94a3b8", fontSize: 14, fontWeight: 500, cursor: "pointer", textTransform: "capitalize", letterSpacing: 0.5, padding: "4px 0", transition: "color 0.2s" }}
-              onMouseEnter={(e) => (e.target.style.color = "#e2e8f0")}
-              onMouseLeave={(e) => (e.target.style.color = "#94a3b8")}
+              onMouseEnter={(e) => ((e.target as HTMLButtonElement).style.color = "#e2e8f0")}
+              onMouseLeave={(e) => ((e.target as HTMLButtonElement).style.color = "#94a3b8")}
             >
               {l}
             </button>
@@ -192,8 +51,8 @@ function Navbar() {
           <a
             href={`mailto:${DATA.email}`}
             style={{ background: "#4f8ef7", color: "#fff", padding: "8px 20px", borderRadius: 6, fontSize: 13, fontWeight: 600, textDecoration: "none", transition: "background 0.2s" }}
-            onMouseEnter={(e) => (e.target.style.background = "#3b7de8")}
-            onMouseLeave={(e) => (e.target.style.background = "#4f8ef7")}
+            onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.background = "#3b7de8")}
+            onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.background = "#4f8ef7")}
           >
             Hire Me
           </a>
@@ -204,7 +63,7 @@ function Navbar() {
 }
 
 // ── HERO ──────────────────────────────────────────────────────────────────────
-function Hero() {
+function Hero(): JSX.Element {
   return (
     <section
       id="hero"
@@ -231,8 +90,9 @@ function Hero() {
           {DATA.tagline}
         </p>
 
+        {/* Stats */}
         <div style={{ display: "flex", justifyContent: "center", gap: "clamp(24px, 4vw, 56px)", marginBottom: 48, flexWrap: "wrap" }}>
-          {DATA.stats.map((s) => (
+          {DATA.stats.map((s: Stat) => (
             <div key={s.label} style={{ textAlign: "center" }}>
               <div style={{ color: "#4f8ef7", fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 800, lineHeight: 1 }}>{s.value}</div>
               <div style={{ color: "#475569", fontSize: 12, fontWeight: 500, marginTop: 6, letterSpacing: 0.5 }}>{s.label}</div>
@@ -244,16 +104,16 @@ function Hero() {
           <button
             onClick={() => scrollTo("projects")}
             style={{ background: "#4f8ef7", color: "#fff", border: "none", padding: "14px 32px", borderRadius: 8, fontSize: 15, fontWeight: 600, cursor: "pointer", transition: "all 0.2s" }}
-            onMouseEnter={(e) => { e.target.style.background = "#3b7de8"; e.target.style.transform = "translateY(-2px)"; }}
-            onMouseLeave={(e) => { e.target.style.background = "#4f8ef7"; e.target.style.transform = "translateY(0)"; }}
+            onMouseEnter={(e) => { (e.target as HTMLButtonElement).style.background = "#3b7de8"; (e.target as HTMLButtonElement).style.transform = "translateY(-2px)"; }}
+            onMouseLeave={(e) => { (e.target as HTMLButtonElement).style.background = "#4f8ef7"; (e.target as HTMLButtonElement).style.transform = "translateY(0)"; }}
           >
             View My Work
           </button>
           <a
             href={`mailto:${DATA.email}`}
             style={{ background: "transparent", color: "#e2e8f0", border: "1px solid rgba(255,255,255,0.15)", padding: "14px 32px", borderRadius: 8, fontSize: 15, fontWeight: 600, textDecoration: "none", transition: "all 0.2s", display: "inline-block" }}
-            onMouseEnter={(e) => { e.target.style.borderColor = "#4f8ef7"; e.target.style.transform = "translateY(-2px)"; }}
-            onMouseLeave={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.15)"; e.target.style.transform = "translateY(0)"; }}
+            onMouseEnter={(e) => { (e.target as HTMLAnchorElement).style.borderColor = "#4f8ef7"; (e.target as HTMLAnchorElement).style.transform = "translateY(-2px)"; }}
+            onMouseLeave={(e) => { (e.target as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.15)"; (e.target as HTMLAnchorElement).style.transform = "translateY(0)"; }}
           >
             Get In Touch
           </a>
@@ -264,7 +124,7 @@ function Hero() {
 }
 
 // ── ABOUT ─────────────────────────────────────────────────────────────────────
-function About() {
+function About(): JSX.Element {
   return (
     <section id="about" style={{ background: "#060a14", padding: "100px 2rem" }}>
       <div style={{ maxWidth: 1060, margin: "0 auto" }}>
@@ -282,7 +142,7 @@ function About() {
 
             <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 10, padding: "20px 24px", marginBottom: 28 }}>
               <p style={{ color: "#4f8ef7", fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", marginBottom: 10 }}>Certifications</p>
-              {DATA.certifications.map((c) => (
+              {DATA.certifications.map((c: string) => (
                 <p key={c} style={{ color: "#94a3b8", fontSize: 14, margin: 0 }}>🏅 {c}</p>
               ))}
             </div>
@@ -297,15 +157,12 @@ function About() {
           <div>
             <p style={{ color: "#475569", fontSize: 11, fontWeight: 600, letterSpacing: 2.5, textTransform: "uppercase", marginBottom: 24 }}>Technical Skills</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-              {DATA.skillGroups.map((group) => (
+              {DATA.skillGroups.map((group: SkillGroup) => (
                 <div key={group.label}>
                   <p style={{ color: "#64748b", fontSize: 11, fontWeight: 600, letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 10 }}>{group.label}</p>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                    {group.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        style={{ background: "rgba(79,142,247,0.08)", border: "1px solid rgba(79,142,247,0.18)", color: "#93c5fd", padding: "5px 12px", borderRadius: 20, fontSize: 12, fontWeight: 500 }}
-                      >
+                    {group.skills.map((skill: string) => (
+                      <span key={skill} style={{ background: "rgba(79,142,247,0.08)", border: "1px solid rgba(79,142,247,0.18)", color: "#93c5fd", padding: "5px 12px", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>
                         {skill}
                       </span>
                     ))}
@@ -321,25 +178,29 @@ function About() {
 }
 
 // ── EXPERIENCE ────────────────────────────────────────────────────────────────
-function Experience() {
-  const [openIdx, setOpenIdx] = useState(0);
+function Experience(): JSX.Element {
+  const [openIdx, setOpenIdx] = useState<number>(0);
+
+  const handleToggle = (idx: number): void =>
+    setOpenIdx((prev) => (prev === idx ? -1 : idx));
+
   return (
     <section id="experience" style={{ background: "#080c18", padding: "100px 2rem" }}>
       <div style={{ maxWidth: 860, margin: "0 auto" }}>
         <SectionHeader label="Experience" title="Where I've worked" />
         <div style={{ position: "relative" }}>
           <div style={{ position: "absolute", left: 18, top: 0, bottom: 0, width: 2, background: "rgba(79,142,247,0.15)", borderRadius: 2 }} />
-          {DATA.experience.map((job, idx) => (
+          {DATA.experience.map((job: ExperienceItem, idx: number) => (
             <div key={idx} style={{ display: "flex", gap: 32, marginBottom: 36, position: "relative" }}>
               <div style={{ flexShrink: 0, width: 38, paddingTop: 20, display: "flex", justifyContent: "center" }}>
                 <div
-                  onClick={() => setOpenIdx(openIdx === idx ? -1 : idx)}
+                  onClick={() => handleToggle(idx)}
                   style={{ width: 14, height: 14, borderRadius: "50%", background: openIdx === idx ? "#4f8ef7" : "rgba(79,142,247,0.3)", border: "2px solid #4f8ef7", cursor: "pointer", transition: "background 0.2s", marginTop: 2 }}
                 />
               </div>
               <div
                 style={{ flex: 1, background: openIdx === idx ? "rgba(79,142,247,0.05)" : "rgba(255,255,255,0.02)", border: `1px solid ${openIdx === idx ? "rgba(79,142,247,0.3)" : "rgba(255,255,255,0.07)"}`, borderRadius: 12, padding: "22px 26px", cursor: "pointer", transition: "all 0.25s ease" }}
-                onClick={() => setOpenIdx(openIdx === idx ? -1 : idx)}
+                onClick={() => handleToggle(idx)}
               >
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 8 }}>
                   <div>
@@ -356,7 +217,7 @@ function Experience() {
                 </div>
                 {openIdx === idx && (
                   <ul style={{ margin: "18px 0 0", paddingLeft: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
-                    {job.highlights.map((h, i) => (
+                    {job.highlights.map((h: string, i: number) => (
                       <li key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                         <span style={{ color: "#4f8ef7", marginTop: 2, flexShrink: 0 }}>▸</span>
                         <span style={{ color: "#94a3b8", fontSize: 14, lineHeight: 1.7 }}>{h}</span>
@@ -374,13 +235,13 @@ function Experience() {
 }
 
 // ── PROJECTS ──────────────────────────────────────────────────────────────────
-function Projects() {
+function Projects(): JSX.Element {
   return (
     <section id="projects" style={{ background: "#060a14", padding: "100px 2rem" }}>
       <div style={{ maxWidth: 1060, margin: "0 auto" }}>
         <SectionHeader label="Projects" title="Things I've built" />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 24 }}>
-          {DATA.projects.map((p) => (
+          {DATA.projects.map((p: Project) => (
             <ProjectCard key={p.title} project={p} />
           ))}
         </div>
@@ -389,8 +250,12 @@ function Projects() {
   );
 }
 
-function ProjectCard({ project }) {
-  const [hovered, setHovered] = useState(false);
+interface ProjectCardProps {
+  project: Project;
+}
+
+function ProjectCard({ project }: ProjectCardProps): JSX.Element {
+  const [hovered, setHovered] = useState<boolean>(false);
   return (
     <div
       onMouseEnter={() => setHovered(true)}
@@ -401,7 +266,7 @@ function ProjectCard({ project }) {
       <h3 style={{ color: "#e2e8f0", fontSize: 17, fontWeight: 700, margin: 0 }}>{project.title}</h3>
       <p style={{ color: "#64748b", fontSize: 14, lineHeight: 1.75, margin: 0, flexGrow: 1 }}>{project.description}</p>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-        {project.tags.map((t) => (
+        {project.tags.map((t: string) => (
           <span key={t} style={{ color: "#4f8ef7", fontSize: 12, fontWeight: 600, fontFamily: "monospace" }}>{t}</span>
         ))}
       </div>
@@ -410,7 +275,13 @@ function ProjectCard({ project }) {
 }
 
 // ── CONTACT ───────────────────────────────────────────────────────────────────
-function Contact() {
+function Contact(): JSX.Element {
+  const footerLinks = [
+    { label: "Email", href: `mailto:${DATA.email}` },
+    { label: "LinkedIn", href: DATA.linkedin },
+    { label: "GitHub", href: DATA.github },
+  ];
+
   return (
     <section id="contact" style={{ background: "#080c18", padding: "100px 2rem" }}>
       <div style={{ maxWidth: 680, margin: "0 auto", textAlign: "center" }}>
@@ -422,30 +293,30 @@ function Contact() {
           <a
             href={`mailto:${DATA.email}`}
             style={{ display: "inline-block", background: "#4f8ef7", color: "#fff", padding: "15px 36px", borderRadius: 8, fontSize: 15, fontWeight: 600, textDecoration: "none", transition: "all 0.2s" }}
-            onMouseEnter={(e) => { e.target.style.background = "#3b7de8"; e.target.style.transform = "translateY(-2px)"; }}
-            onMouseLeave={(e) => { e.target.style.background = "#4f8ef7"; e.target.style.transform = "translateY(0)"; }}
+            onMouseEnter={(e) => { (e.target as HTMLAnchorElement).style.background = "#3b7de8"; (e.target as HTMLAnchorElement).style.transform = "translateY(-2px)"; }}
+            onMouseLeave={(e) => { (e.target as HTMLAnchorElement).style.background = "#4f8ef7"; (e.target as HTMLAnchorElement).style.transform = "translateY(0)"; }}
           >
             ✉️ Say Hello
           </a>
           <a
             href={`tel:${DATA.phone}`}
             style={{ display: "inline-block", background: "transparent", color: "#e2e8f0", border: "1px solid rgba(255,255,255,0.13)", padding: "15px 36px", borderRadius: 8, fontSize: 15, fontWeight: 600, textDecoration: "none", transition: "all 0.2s" }}
-            onMouseEnter={(e) => { e.target.style.borderColor = "#4f8ef7"; e.target.style.transform = "translateY(-2px)"; }}
-            onMouseLeave={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.13)"; e.target.style.transform = "translateY(0)"; }}
+            onMouseEnter={(e) => { (e.target as HTMLAnchorElement).style.borderColor = "#4f8ef7"; (e.target as HTMLAnchorElement).style.transform = "translateY(-2px)"; }}
+            onMouseLeave={(e) => { (e.target as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.13)"; (e.target as HTMLAnchorElement).style.transform = "translateY(0)"; }}
           >
             📞 Call Me
           </a>
         </div>
         <div style={{ display: "flex", gap: 32, justifyContent: "center", flexWrap: "wrap" }}>
-          {[{ label: "Email", href: `mailto:${DATA.email}` }, { label: "LinkedIn", href: DATA.linkedin }, { label: "GitHub", href: DATA.github }].map((l) => (
+          {footerLinks.map((l) => (
             <a
               key={l.label}
               href={l.href}
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: "#475569", textDecoration: "none", fontSize: 14, fontWeight: 500, transition: "color 0.2s" }}
-              onMouseEnter={(e) => (e.target.style.color = "#4f8ef7")}
-              onMouseLeave={(e) => (e.target.style.color = "#475569")}
+              onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = "#4f8ef7")}
+              onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = "#475569")}
             >
               {l.label}
             </a>
@@ -457,18 +328,24 @@ function Contact() {
 }
 
 // ── FOOTER ────────────────────────────────────────────────────────────────────
-function Footer() {
+function Footer(): JSX.Element {
   return (
     <footer style={{ background: "#040710", borderTop: "1px solid rgba(255,255,255,0.05)", padding: "24px 2rem", textAlign: "center" }}>
       <p style={{ color: "#1e293b", fontSize: 13, margin: 0 }}>
-        © {new Date().getFullYear()} Rushikesh Lahane · Built with React · Hosted on Vercel
+        © {new Date().getFullYear()} Rushikesh Lahane · Built with React & TypeScript · Hosted on Vercel
       </p>
     </footer>
   );
 }
 
-// ── SHARED ────────────────────────────────────────────────────────────────────
-function SectionHeader({ label, title, centered = false }) {
+// ── SHARED COMPONENTS ─────────────────────────────────────────────────────────
+interface SectionHeaderProps {
+  label: string;
+  title: string;
+  centered?: boolean;
+}
+
+function SectionHeader({ label, title, centered = false }: SectionHeaderProps): JSX.Element {
   return (
     <div style={{ marginBottom: 56, textAlign: centered ? "center" : "left" }}>
       <p style={{ color: "#4f8ef7", fontSize: 11, fontWeight: 600, letterSpacing: 3.5, textTransform: "uppercase", marginBottom: 12 }}>{label}</p>
@@ -478,7 +355,7 @@ function SectionHeader({ label, title, centered = false }) {
   );
 }
 
-const socialBtnStyle = {
+const socialBtnStyle: React.CSSProperties = {
   display: "inline-block",
   background: "transparent",
   border: "1px solid rgba(255,255,255,0.1)",
@@ -491,8 +368,8 @@ const socialBtnStyle = {
   transition: "border-color 0.2s, color 0.2s",
 };
 
-// ── APP ───────────────────────────────────────────────────────────────────────
-export default function App() {
+// ── APP ROOT ──────────────────────────────────────────────────────────────────
+export default function App(): JSX.Element {
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", margin: 0, padding: 0 }}>
       <Navbar />
