@@ -4,9 +4,7 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: #080c18;
@@ -15,6 +13,4 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-button {
-  font-family: inherit;
-}
+button { font-family: inherit; }

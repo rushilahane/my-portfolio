@@ -1,6 +1,5 @@
 import type { PortfolioData } from "./types";
 
-// ── PORTFOLIO DATA — edit this file to update your portfolio ──────────────────
 export const DATA: PortfolioData = {
   name: "Rushikesh Lahane",
   role: "Senior Mobile Developer",
@@ -17,11 +16,122 @@ I bring strong experience across the full development cycle — from architectur
 
   stats: [
     { value: "5+", label: "Years Experience" },
-    { value: "70%", label: "Faster Update Cycles" },
+    { value: "5", label: "Apps Live on Stores" },
     { value: "60%", label: "Re-render Reduction" },
     { value: "95%", label: "OCR Accuracy" },
   ],
 
+  // ── METRICS DASHBOARD ──────────────────────────────────────────────────────
+  metrics: [
+    { value: "70", suffix: "%", label: "Faster Update Cycles", sublabel: "Via Expo OTA — no store release needed", icon: "🚀" },
+    { value: "60", suffix: "%", label: "Re-render Reduction", sublabel: "React.memo + useMemo + useCallback", icon: "⚡" },
+    { value: "40", suffix: "%", label: "Memory Usage Drop", sublabel: "Lazy loading & virtualized FlatLists", icon: "🧠" },
+    { value: "45", suffix: "%", label: "Crash Rate Reduced", sublabel: "Performance monitoring & render cycles", icon: "🛡️" },
+    { value: "35", suffix: "%", label: "Bundle Size Cut", sublabel: "Memoization & code splitting", icon: "📦" },
+    { value: "95", suffix: "%", label: "OCR Accuracy", sublabel: "500+ documents processed daily", icon: "🔍" },
+  ],
+
+  // ── SPECIALIZATION CARDS ───────────────────────────────────────────────────
+  specializations: [
+    {
+      icon: "⚡",
+      title: "Performance Optimization",
+      description: "Deep expertise in React Native performance — eliminating unnecessary re-renders, optimizing FlatLists, image caching, and bundle splitting.",
+      highlight: "60% fewer re-renders",
+    },
+    {
+      icon: "🚀",
+      title: "OTA Deployments (Expo)",
+      description: "Architect and implement Expo Update Services for instant over-the-air bug fixes and feature releases without waiting for store approvals.",
+      highlight: "70% faster releases",
+    },
+    {
+      icon: "🔍",
+      title: "OCR & ML Integration",
+      description: "Production-grade Google ML Kit integration for real-time document scanning, text extraction, and intelligent data processing at scale.",
+      highlight: "95% accuracy at 500+ docs/day",
+    },
+    {
+      icon: "💳",
+      title: "Payment Gateway Integration",
+      description: "End-to-end payment flows including in-app purchases, subscription billing, and third-party gateway integrations on both iOS and Android.",
+      highlight: "iOS + Android certified",
+    },
+    {
+      icon: "📡",
+      title: "Real-time Apps (Socket.IO)",
+      description: "Building real-time mobile experiences with WebSocket connections, live telemetry dashboards, and location tracking for fleet management.",
+      highlight: "60 FPS live dashboards",
+    },
+    {
+      icon: "📊",
+      title: "Data Visualization",
+      description: "Custom chart components and interactive dashboards — Line, Bar, Pie, Scatter plots for vehicle analytics using Victory Native and D3.js.",
+      highlight: "Victory Native · D3.js · Recharts",
+    },
+  ],
+
+  // ── SKILL BARS ─────────────────────────────────────────────────────────────
+  skillBars: [
+    { name: "React Native", level: 95 },
+    { name: "TypeScript", level: 90 },
+    { name: "JavaScript", level: 95 },
+    { name: "Redux / Context API", level: 88 },
+    { name: "Expo & OTA Updates", level: 92 },
+    { name: "Firebase", level: 85 },
+    { name: "REST APIs & Socket.IO", level: 88 },
+    { name: "iOS (Xcode)", level: 80 },
+    { name: "Android Studio", level: 82 },
+    { name: "React.js", level: 78 },
+    { name: "Git & CI/CD", level: 85 },
+    { name: "Google ML Kit / OCR", level: 80 },
+  ],
+
+  // ── LIVE APPS ──────────────────────────────────────────────────────────────
+  apps: [
+    {
+      name: "Intangles Installer",
+      description: "Streamlines hardware device installation on vehicles — from creating a new vehicle account to full device testing — ensuring a seamless, efficient workflow.",
+      playStore: "https://play.google.com/store/apps/details?id=com.intanglesapp.dolittle",
+      appStore: "https://apps.apple.com/in/app/intangles-installer/id6475731267",
+      badge: "Built from Scratch",
+      built: "built",
+    },
+    {
+      name: "iPulse — Force Motors",
+      description: "Intelligent fleet telematics solution with cutting-edge telemetry providing powerful insights on vehicle health, performance, and real-time location for FML.",
+      playStore: "https://play.google.com/store/apps/details?id=com.fml",
+      appStore: "https://apps.apple.com/in/app/ipulse-force-motors-limited/id6744886994",
+      badge: "Built from Scratch",
+      built: "built",
+    },
+    {
+      name: "Cost Calculator",
+      description: "Detailed high-level estimation tool for mobile app project requirements — helping businesses plan and scope their mobile development needs accurately.",
+      playStore: "https://play.google.com/store/apps/details?id=com.redbytes.projectcostcalculator",
+      appStore: "https://apps.apple.com/in/app/id1482880672",
+      badge: "Built from Scratch",
+      built: "built",
+    },
+    {
+      name: "Intangles",
+      description: "Predictive and real-time vehicle health, fuel, and location monitoring platform serving thousands of fleet operators across India.",
+      playStore: "https://play.google.com/store/search?q=intangles",
+      appStore: "https://apps.apple.com/in/app/intangles/id1451475369",
+      badge: "Maintained & Enhanced",
+      built: "maintained",
+    },
+    {
+      name: "iMAXX — Mahindra",
+      description: "Mahindra's intelligent fleet telematics solution offering deep insights on vehicle health and performance with smart business management tools, 24/7.",
+      playStore: "https://play.google.com/store/apps/details?id=com.imaxxapp",
+      appStore: "https://apps.apple.com/in/app/mahindra-imaxx/id1641282346",
+      badge: "Maintained & Enhanced",
+      built: "maintained",
+    },
+  ],
+
+  // ── SKILL GROUPS ───────────────────────────────────────────────────────────
   skillGroups: [
     {
       label: "Mobile Development",
@@ -49,6 +159,7 @@ I bring strong experience across the full development cycle — from architectur
     },
   ],
 
+  // ── EXPERIENCE ─────────────────────────────────────────────────────────────
   experience: [
     {
       title: "Senior Developer — Mobile App",
@@ -105,32 +216,29 @@ I bring strong experience across the full development cycle — from architectur
     },
   ],
 
+  // ── PROJECTS ───────────────────────────────────────────────────────────────
   projects: [
     {
       title: "Vehicle Diagnostics Dashboard",
-      description:
-        "Real-time analytics dashboard for vehicle data — speed, fuel consumption, and engine metrics rendered at 60 FPS with Line, Bar, Pie, and Scatter plot visualizations using Victory Native.",
+      description: "Real-time analytics dashboard for vehicle data — speed, fuel consumption, and engine metrics rendered at 60 FPS with Line, Bar, Pie, and Scatter plot visualizations.",
       tags: ["React Native", "Victory Native", "Socket.IO", "Firebase"],
       emoji: "🚗",
     },
     {
       title: "OCR Document Scanner",
-      description:
-        "Mobile app feature integrating Google ML Kit for document scanning and text extraction — processing 500+ documents daily with 95% accuracy, including ID cards and invoices.",
+      description: "Mobile feature integrating Google ML Kit for document scanning and text extraction — processing 500+ documents daily with 95% accuracy.",
       tags: ["React Native", "Google ML Kit", "OCR", "TypeScript"],
       emoji: "📄",
     },
     {
       title: "Cross-Platform Payment App",
-      description:
-        "Full-cycle React Native application with payment gateway integration, in-app purchases, social auth (Google, Facebook, Apple, LinkedIn), and OTA update delivery via Expo.",
+      description: "Full-cycle React Native application with payment gateway integration, in-app purchases, social auth, and OTA update delivery via Expo.",
       tags: ["React Native", "Expo OTA", "Payment Gateway", "Redux"],
       emoji: "💳",
     },
     {
       title: "Real-Time Tracking Platform",
-      description:
-        "Location-based mobile app with Google Maps integration, real-time geolocation tracking via Socket.IO, and WebSocket connections for live data updates on iOS and Android.",
+      description: "Location-based mobile app with Google Maps integration, real-time geolocation tracking via Socket.IO, and WebSocket connections.",
       tags: ["React Native", "Google Maps", "Socket.IO", "Android/iOS"],
       emoji: "📍",
     },
